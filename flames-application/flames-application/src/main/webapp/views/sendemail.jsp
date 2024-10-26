@@ -12,9 +12,9 @@
 	<h1 align="center">Love Calculator</h1>
 	<hr>
 
-	Hi ${yourName}
+	<h1>Hi ${yourName}</h1>
 	<br>
-
+	
 	<h1>Send Result to your Email :</h1>
 
 	<form:form action="processemail" modelAttribute="email">
