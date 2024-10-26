@@ -12,7 +12,7 @@
 	<hr>
 	<h1>The Love Calculator predicts              :</h1>
 	<h1>${lover.yourName} and ${lover.gfName} are :</h1>
-	<h1>Lovers</h1><br> <br> <br>
+	<h1>${result} </h1><br> <br> <br>
 	
 	<h1><a href="/sendemail">Send a result to an email</a></h1>
 	<h1><a href="/">try with somebody else</a></h1>

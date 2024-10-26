@@ -15,7 +15,7 @@
     <hr>
     <div align="center">
         <!-- Standard HTML form -->
-        <form:form action="claculate" modelAttribute="lover">
+        <form:form action="claculate" method="get" modelAttribute="lover">
             <p>
                 <label for="yourName">Your Name:</label>
                 <form:input id="yourName" path="yourName"/>

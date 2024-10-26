@@ -1,29 +1,33 @@
 package com.flames.application.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.flames.application.dto.Lovers;
+import com.flames.application.services.ResutService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class FlamesCalculator {
-
-	@RequestMapping("/")
+	
+	@Autowired
+	private ResutService resultService;
+	
+	@GetMapping("/")
 	public String getHome(@ModelAttribute("lover") Lovers lovers) {
 		return "homePage";
 	}
 	
-	@RequestMapping("/claculate")
-	public String getCalaculate(Lovers lovers,Model model,HttpServletRequest req) {
-	HttpSession httpSession	=req.getSession();
-	httpSession.setAttribute("yourName",lovers.getYourName() );
+	@GetMapping("/claculate")
+	public String getCalaculate(@ModelAttribute("lover") Lovers lovers,HttpServletRequest req) {
 	
-	model.addAttribute("lover",lovers);
-	return"result"; 
+	String result=resultService.getResult(lovers,req);	
+	return "result"; 
 	}
 }
